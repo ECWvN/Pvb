@@ -1,0 +1,41 @@
+.NewUser{
+    flex:4;
+    padding: 0px 20px;
+}
+
+.NewUserTitle{
+    font-weight: bold;
+    font-size: 32px;
+    
+}
+
+.newUserAdd{
+    width: 150px;
+    background-color:#E8231A;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+.newuserItem{
+    font-family: 19px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    max-width: 500px;
+    min-width: 200px;
+}
+.newUserInput{
+    border: none;
+    background-color: rgba(185, 185, 185, 0.1);
+    padding: 15px;
+    margin: 5px;
+    border-radius: 10px;
+}

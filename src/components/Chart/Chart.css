@@ -1,0 +1,11 @@
+.Chart{
+    margin: 25px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 38px -3px rgba(0,0,0,0.1);
+}
+
+.ChartTitle{
+    font-size: 20px;
+    margin-bottom: 20px;
+}

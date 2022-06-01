@@ -1,0 +1,55 @@
+/* html{
+    justify-content: center;
+    display: flex;
+}
+.ResgisterTitle{
+    font-size:56px;
+}
+
+.RegisterInfoMessage{
+    margin-top:-35px;
+    margin-bottom: 20px;
+}
+
+.formStyle{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0px;
+
+}
+
+#naam, #email,#wachtwoord, #wachtwoord-bevestigen{
+    font-size: 19px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    
+}
+
+.InputStyle{
+    height: 45px;
+    margin: 8px 0px ;
+    border-width: 2px solid #ccc;
+   
+}
+
+Button{
+    width: 150px;
+    background-color:#E8231A;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.ErrorStyle{
+    color: #E8231A;
+    font-size:19px;
+    font-weight: bold;
+} */

@@ -1,0 +1,51 @@
+.topbar{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    
+
+}
+.topbarWrapper{
+    height: 100%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+.topLeft{
+    align-items: center;
+    display: flex;
+    margin: 3px;
+
+  
+
+}
+
+.nav-item{
+    list-style: none;
+    text-decoration: none;
+
+}
+
+.nav-link{
+    text-decoration: none;
+}
+
+.Burgermenu{
+    margin: 4px;
+    color: black;
+
+  
+    
+}
+
+.TopbarBand{
+    width: 100%;
+    height: 20px;
+    background-image: url(./TopbarImg.png);
+}

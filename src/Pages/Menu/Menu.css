@@ -1,0 +1,105 @@
+.Menu{
+    width:100%;
+    padding:20px;
+    box-shadow: 0px 10px 38px -3px rgba(0,0,0,0.1);
+    background-color: #E8231A ;
+    color: white;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    align-items: center;
+}
+.introductieMenuIntro{
+    background-color: #E8231A ;
+    color: white;
+    font-weight: 500;
+    font-size: 24px;
+}
+.menuBlock{
+    display: flex;
+    border-radius: 15px;
+    padding: 20px;
+    height: 300px;
+    box-shadow: 0px 10px 38px -3px rgba(0,0,0,0.1);
+    margin-right:15px;
+    margin-top:25px;
+    max-width:46%;
+}
+
+.imagefood{
+display: flex;
+flex: 2;
+height: 300px;
+
+}
+.BekijkMenu{
+    display: flex;
+    align-self: bottom;
+    width: 150px;
+    background-color:#E8231A;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 17px;
+
+}
+.contentfood{
+    display:flex;
+    flex:4;
+    display: table-column;
+    padding: 0px 20px;
+    
+}
+
+.foodTitle{
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom:15px;
+}
+.IngredientList{
+    list-style: none;
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+
+
+@media (max-width: 767px) {
+    .introductieMenuIntro{
+        font-weight: 500;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .Menu{
+        align-items: center;
+        width:100%;
+        padding:20px;
+        box-shadow: 0px 10px 38px -3px rgba(0,0,0,0.1);
+        background-color: #E8231A ;
+        color: white;
+        font-weight: bold;
+        font-size: 22px;
+        text-align: center;
+    }
+    .imagefood{
+        display: flex;
+        
+          height: 200px;
+          order: 1;
+        
+        }
+
+        .menuBlock{
+            display: flex;
+            flex: 2;
+            max-width:100%;
+            display: table-column;
+        }
+        .contentfood{
+            display:flex;
+            flex:4;
+            display: grid;
+ 
+            
+        }
+  }

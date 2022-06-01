@@ -1,0 +1,11 @@
+.Home{
+    flex:4;
+}
+.homewidgets{
+    display: flex;
+    margin: 25px;
+}
+.container{
+    display: flex;
+    margin-top: 15px;
+}
