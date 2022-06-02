@@ -7,10 +7,11 @@ import User from "./Pages/User/User";
 import NewUser from './Pages/NewUser/NewUser';
 import ProductList from './Pages/ProducList/ProductList';
 import WeekMenu from "./Pages/Menu/Menu";
+import Login from './Pages/Login/Login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import "./app.css"
-import Signup from './Pages/Register/Signup';
+import Register from "././Pages/Register/Register";
+import Reservation from "././Pages/Reservation/Reservation";
 
 function App() {
     return (
@@ -23,11 +24,12 @@ function App() {
           <Route exact path="/users" element={<UserList/>} />
           <Route exact path="/user/:userid" element={<User />} />
           <Route exact path="/newuser" element={<NewUser />} />
-          <Route exact path="/reserveringen" element={<Home />} />
+          <Route exact path="/reserveringen" element={<Reservation />} />
           <Route exact path="/producten" element={<ProductList />} />
           <Route exact path="/product/:productId" element={<ProductList />} />
           <Route exact path="/nieuwproduct" element={<ProductList />} />
-          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/registreren" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
           
           </Routes>
         </div>

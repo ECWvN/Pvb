@@ -14,27 +14,17 @@ export default function FeaturedInfo() {
         </div>
 
         <div className="FeaturedItem">
-          <span className="FeaturedTitle">Sales</span>
+          <span className="FeaturedTitle">Opbrengst deze week</span>
           <div className="FeaturedMoneyContainer">
-              <span className="FeaturedMoney">$3,50</span>
+              <span className="FeaturedMoney">€90</span>
             </div>
-           <div className="FeaturedSub">last month $3,30</div>
+           <div className="FeaturedSub">Vorige week €120</div>
         </div>
-
         <div className="FeaturedItem">
-          <span className="FeaturedTitle">Sales</span>
+          <span className="FeaturedTitle">Vandaag op het menu</span>
           <div className="FeaturedMoneyContainer">
-              <span className="FeaturedMoney">$3,50</span>
+              <span className="FeaturedMoney">Pasta</span>
             </div>
-           <div className="FeaturedSub">last month $3,30</div>
-        </div>
-
-        <div className="FeaturedItem">
-          <span className="FeaturedTitle">Sales</span>
-          <div className="FeaturedMoneyContainer">
-              <span className="FeaturedMoney">$3,50</span>
-            </div>
-           <div className="FeaturedSub">last month $3,30</div>
         </div>
     </div>
   )

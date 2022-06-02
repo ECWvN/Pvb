@@ -1,0 +1,37 @@
+.SignupForm{
+    padding:20px;
+    align-items: center;
+}
+
+.SignUpTitle{
+    font-size: 70px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.SignupRow{
+    display: flex;
+    flex-direction: column;
+}
+
+#name, #email, #password, #confirmPassword,#birthDate,#phonenumber{
+    height:40px !important;
+    border: 2px solid #E0E0E0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.SignupButton{
+    width: 150px;
+    background-color:#E8231A;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
