@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./app.css"
 import Register from "././Pages/Register/Register";
 import Reservation from "././Pages/Reservation/Reservation";
+import BewHome from './Pages/BewHome/BewHome';
 
 function App() {
     return (
@@ -19,8 +20,9 @@ function App() {
         <Topbar />
         <div className="container">
           <Routes>
-          <Route exact path="/" element={<WeekMenu/>} />
+          <Route exact path="/" element={<BewHome/>} />
           <Route exact path="/home" element={<Home/>} />
+          <Route exact path="/menu" element={<WeekMenu/>} />
           <Route exact path="/users" element={<UserList/>} />
           <Route exact path="/user/:userid" element={<User />} />
           <Route exact path="/newuser" element={<NewUser />} />

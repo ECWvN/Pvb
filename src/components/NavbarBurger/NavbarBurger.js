@@ -25,7 +25,7 @@ export default class Sidebar extends React.Component {
         <Link onClick={() => this.closeMenu()} className="menu-item" to="/">
           Home
         </Link>
-        <Link onClick={() => this.closeMenu()} className="menu-item" to="/" >
+        <Link onClick={() => this.closeMenu()} className="menu-item" to="/menu" >
           Menu
         </Link>
         <Link onClick={() => this.closeMenu()} className="menu-item" to="/reserveringen" >
