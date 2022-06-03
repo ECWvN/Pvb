@@ -1,27 +1,49 @@
-import React from 'react';
-import "./Login.css";
-import { Link } from 'react-router-dom';
-import loginBanner from "./loginBanner.png"
+import { useContext, useState } from "react"
+import React from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../../firebase"
+import { initializeApp } from "firebase/app";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import "./Login.scss"
 
-export default function Login() {
+
+const Login = () => {
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
+
+  const {dispatch} = useContext(AuthContext)
+
+  const handleLogin = (e) =>{
+    e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    dispatch({type:"LOGIN", payload:user})
+    navigate("/")
+  })
+  .catch((error) => {
+    setError(true);
+  });
+
+  }
   return (
-    <div>
-            <div className='SignupForm'>
-            <div className="SignUpBanner"><img src={loginBanner}/></div>
-       <div className="SignupRow"> 
-       <div className="SignUpTitle"><h2>Inloggen</h2></div>
-       </div>
-       <div className="SignupRow">
-            <label className="formLabel" for="email">E-mailadres </label>
-            <input  type="email" name="" id="email"  className="SignUpInput"/>
-       </div>
-       <div className="SignupRow">
-            <label className="formLabel" for="password">Wachtwoord </label>
-            <input  type="password" name="" id="password"  className="SignUpInput"/>
-       </div>
-       <button type="submit" class="SignupButton">Log in</button>
-      </div>
-     <Link to="/registreren" >Geen account? Klik hier om te registraren.</Link>
+    <div className="login">
+      <form onSubmit={handleLogin}>
+        <input type="email" placeholder="email" onChange={e=>setEmail(e.target.value)} />
+        <input type="password" placeholder="password" onChange={e=>setPassword(e.target.value)} />
+        <button type="submit">login</button>
+        { error && <span>wrong email or password!</span>}
+      </form>
     </div>
   )
 }
+
+export default Login
