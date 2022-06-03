@@ -7,3 +7,43 @@ value={password} onChange = {(e) => handleInputChange(e)}
 value={confirmPassword} onChange = {(e) => handleInputChange(e)}
 value={birthDate} onChange = {(e) => handleInputChange(e)}
 value={phonenumber} onChange = {(e) => handleInputChange(e)} 
+
+
+//register.jsx
+
+// export default function Signup() {
+//      //   const [data, setData] = useState({
+//      //     name:"",
+//      //   })
+     
+//      // //   const handleChange=(e)=>{
+//      // // setData
+//      //   }
+
+     // const handleInputChange = (e) => {
+     //   const {id , value} = e.target;
+     //   if(id === "Name"){
+     //       setName(value);
+     //   }
+     //   if(id === "email"){
+     //       setEmail(value);
+     //   }
+     //   if(id === "password"){
+     //       setPassword(value);
+     //   }
+     //   if(id === "confirmPassword"){
+     //       setConfirmPassword(value);
+     //   }
+     //   if(id === "birtDate"){
+     //     setBrithDate(value);
+     // }
+     // if(id === "phonenumber"){
+     //   setPhonenumber(value);
+     // }
+     
+     // }
+     
+     // const handleSubmit  = () => {
+     //   console.log(Name,email,password,confirmPassword,birthDate,phonenumber);
+     // }
+// }

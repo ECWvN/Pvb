@@ -14,6 +14,8 @@ import Register from "././Pages/Register/Register";
 import Reservation from "././Pages/Reservation/Reservation";
 import BewHome from './Pages/BewHome/BewHome';
 
+
+
 function App() {
     return (
       <BrowserRouter>
@@ -30,8 +32,10 @@ function App() {
           <Route exact path="/producten" element={<ProductList />} />
           <Route exact path="/product/:productId" element={<ProductList />} />
           <Route exact path="/nieuwproduct" element={<ProductList />} />
-          <Route exact path="/registreren" element={<Register />} />
+          <Route exact path="/r" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
+  
+          
           
           </Routes>
         </div>
