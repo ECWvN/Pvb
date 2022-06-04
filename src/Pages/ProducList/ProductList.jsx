@@ -45,24 +45,24 @@ function ProductList() {
           />
         </div>
         <div className="inputGp">
-          <label> Post:</label>
+          <label> Naam Gerecht</label>
           <input className="productinput"
-            placeholder="Post..."
+            placeholder="Pasta, sushi....."
             onChange={(event) => {
               setTitle(event.target.value);
             }}
           />
         </div>
         <div className="inputGp">
-          <label> Post:</label>
+          <label> Naam Gerecht</label>
           <textarea className="productinput"
-            placeholder="Post..."
+            placeholder="basis ingredieneten...."
             onChange={(event) => {
               setIngred(event.target.value);
             }}
           />
         </div>
-        <button onClick={createPost}> Submit Post</button>
+        <button className= "nieuwger"onClick={createPost}> Plaatsen</button>
       </div>
     </div>
   );
