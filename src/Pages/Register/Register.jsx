@@ -1,53 +1,84 @@
-// import { useContext, useState } from "react"
-// import React from "react";
-// import { createUserWithEmailAndPassword} from "firebase/auth";
-// import {auth} from "../../firebase"
-// import { initializeApp } from "firebase/app";
-// import { useNavigate, Link } from "react-router-dom";
-// import { AuthContext } from "../../context/AuthContext";
-// import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-// import "./Register.css";
+import React, {useState} from 'react'
+import './Register.css'
+import {auth} from "../../firebase"
+import {useNavigate, Link} from 'react-router-dom'
+import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
+import {useAuthValue} from "../../context/AuthContext"
 
-// const Register = () => {
-//   const [error, setError] = useState(false);
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
+function Register() {
 
-//   const handleregister = (e) =>{
-//     e.preventDefault();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
 
-// const auth = getAuth();
-// createUserWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user;
-//     // ...
-//   })
-    
-//   .catch((error) => {
-//     setError(true);
-//   });
+  const validatePassword = () => {
+    let isValid = true
+    if (password !== '' && confirmPassword !== ''){
+      if (password !== confirmPassword) {
+        isValid = false
+        setError('Passwords does not match')
+      }
+    }
+    return isValid
+  }
 
-//   return (
-//     <div className="login">
-//          <div className="loginTitle">Inloggen</div>
-//      <div className="loginForm">
-//      <form onSubmit={handleLogin}>
-//      <label className="formLabel" for="email">E-mailadres </label>
-//         <input type="email"  onChange={e=>setEmail(e.target.value)} />
-//         <label className="formLabel" for="password">Wachtwoord </label>
-//         <input type="password"  onChange={e=>setPassword(e.target.value)} />
-//         <Link to= "#"><div className="forgotpassword">wachtwoord vergeten?</div></Link>
-//         <button type="submit">login</button>
-//         { error && <span>Niet gelukt!</span>}
-//       </form>
-//      </div>
+  const register = e => {
+    e.preventDefault()
+    setError('')
+    if(validatePassword()) {
+      // Create a new user with email and password using firebase
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          sendEmailVerification(auth.currentUser)   
+          .then(() => {
+            navigate('/')
+          }).catch((err) => alert(err.message))
+        })
+        .catch(err => setError(err.message))
+    }
+    setEmail('')
+    setPassword('')
+    setConfirmPassword('')
+  }
 
-   
-//     </div>
-//   )
-// };
-// }
+  return (
+    <div className='center'>
+      <div className='auth'>
+        <h1>Register</h1>
+        {error && <div className='auth__error'>{error}</div>}
+        <form onSubmit={register} name='registration_form'>
+          <input 
+            type='email' 
+            value={email}
+            placeholder="Enter your email"
+            required
+            onChange={e => setEmail(e.target.value)}/>
 
-// export default Register
+          <input 
+            type='password'
+            value={password} 
+            required
+            placeholder='Enter your password'
+            onChange={e => setPassword(e.target.value)}/>
 
+            <input 
+            type='password'
+            value={confirmPassword} 
+            required
+            placeholder='Confirm password'
+            onChange={e => setConfirmPassword(e.target.value)}/>
+
+          <button type='submit'>Register</button>
+        </form>
+        <span>
+          Already have an account?  
+          <Link to='/login'>login</Link>
+        </span>
+      </div>
+    </div>
+  )
+}
+
+export default Register

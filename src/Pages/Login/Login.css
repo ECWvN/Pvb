@@ -3,7 +3,8 @@
     font-size:32px;
     font-weight: bold;
     margin-bottom: 15px;
-    margin-left: 10px;
+    margin-left: 15px;
+    margin-top: 15px;
 }
 
 .loginForm{
@@ -17,26 +18,9 @@
 form{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
 }
 
-input{
-    width:370px;
-    height:50px;
-    margin: 10px;
-}
-
-button{
-    width: 90px;
-    height: 50px;
-    border: none;
-    background-color: #E8231A;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 22px;
-    margin-left: -280px;
-}
 
 span{
     font-size: 16px;
@@ -51,7 +35,3 @@ span{
     margin-top:15px;
 }
 
-label {
-    display: flex;
-    margin-left: -280px;
-}

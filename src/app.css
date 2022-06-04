@@ -21,20 +21,14 @@ html{
 }
 
 
-@media (min-width: 768px) {
-    
-.container, .container-md, .container-sm{
 
-}
-}
-
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+/* .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     padding-right: 0px;
     padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
     justify-content: center;
-}
+} */
 
 
 div#root {
@@ -47,3 +41,20 @@ div#root {
     width: 540px !important;
 }
 
+button{
+    width: 90px;
+    height: 50px;
+    border: none;
+    background-color: #E8231A;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 22px;
+    margin-bottom:20px;
+}
+
+
+textarea{
+    text-decoration: none;
+    resize: none;
+}

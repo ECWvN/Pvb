@@ -1,0 +1,33 @@
+.NeddLoginMes{
+ 
+}
+
+.NeedLoginCont{
+    margin-top:80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right:auto;
+    font-weight: bold;
+}
+
+.NeddLoginMesRed{
+    color: #E8231A;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.NeedLoginBtnLogin{
+    margin-top:100px;
+}
+.of{
+    color: grey;
+}
+
+.NeedLoginbtnReg{
+    margin-top:20px;
+    width: 200px;
+    color:black;
+    background-color:#f4f2ef ;
+}

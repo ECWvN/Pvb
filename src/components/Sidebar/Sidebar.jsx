@@ -7,6 +7,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import { Link } from 'react-router-dom';
 
+
+
 export default function Sidebar() {
   return (
     <div className ="Sidebar">
@@ -18,26 +20,17 @@ export default function Sidebar() {
               <HomeIcon className="sidebarIcon"/> 
               </div>
            </Link>
-           <Link to="/users" className='link'>
-              <div className="sidebarListItem">
-              <ManageAccountsIcon className="sidebarIcon"/> 
-            </div>
-            </Link>
+           
             <Link to="/producten" className='link'>
            <div className="sidebarListItem">
               <FoodBankIcon className="sidebarIcon"/> 
               </div>
            </Link>
-         
-            <Link to="/reserveringen" className='link'>
+            <Link to="/bekijkreserveringen" className='link'>
                <div className="sidebarListItem">
                <ConfirmationNumberIcon className="sidebarIcon"/> 
               </div>
              </Link>
-             <div className="sidebarListItem">
-             <PaidIcon className="sidebarIcon"/> 
-            </div>
-         
        </div>
      </div>
     </div>

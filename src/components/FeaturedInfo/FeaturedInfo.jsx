@@ -10,7 +10,7 @@ export default function FeaturedInfo() {
           <div className="FeaturedMoneyContainer">
               <span className="FeaturedMoney">19</span>
             </div>
-           <div className="FeaturedSub">vorgie maan 18</div>
+           <div className="FeaturedSub">vorgie maand 18</div>
         </div>
 
         <div className="FeaturedItem">

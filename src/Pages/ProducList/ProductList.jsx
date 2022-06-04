@@ -1,7 +1,6 @@
 import React from 'react'
 import "./ProductList.css"
 import { DataGrid } from '@mui/x-data-grid';
-import {ProductRows} from "../../DummyData"
 import { useState } from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {addDoc, collection} from 'firebase/firestore'

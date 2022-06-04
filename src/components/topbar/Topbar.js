@@ -1,20 +1,21 @@
 import React, {useState} from 'react'
 import "./Topbar.css"
 import Schild from './Schild.png'
-import LoginIcon from '@mui/icons-material/Login';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import NavbarBurger from "../NavbarBurger/NavbarBurger"
-import CloseIcon from '@mui/icons-material/Close';
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
-
+import { auth } from '../../firebase';
+import { signOut, getAuth } from 'firebase/auth';
 
 
 
 export default function Topbar() {
   const [sidebar, setSidebar] = useState(false)
+
+  // const logout = async ()=>{
+  //   await signOut(auth);
+  // }
+
 
   const showSidebar = () => setSidebar(!sidebar)
   return (
@@ -25,7 +26,8 @@ export default function Topbar() {
           <div className='topbarIcons'>
           </div>
         </div>
-        <div className='topRight'><img src={Schild} /></div>
+        <div className='topRight'><img src={Schild} />
+       </div>
       </div>
       <div className='TopbarBand'><NavbarBurger/></div>
     </div>
@@ -33,3 +35,6 @@ export default function Topbar() {
 
   )
 }
+
+
+{/* <button onClick={logout}>signout</button> */}
