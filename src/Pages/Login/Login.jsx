@@ -27,7 +27,7 @@ const Login = () => {
     const user = userCredential.user;
     console.log(user);
     dispatch({type:"LOGIN", payload:user})
-    navigate("/admin")
+    navigate("/")
   })
   .catch((error) => {
     setError(true);
@@ -36,7 +36,7 @@ const Login = () => {
   }
   return (
     <div className="login">
-         <div className="SignUpBanner"><img className="loginimg"src={LoginBanner}/></div>
+         <div className="SignUpBanner"><img alt='BANNER' className="loginimg"src={LoginBanner}/></div>
          <div className="loginTitle">Inloggen</div>
      <div className="loginForm">
      <form onSubmit={handleLogin}>

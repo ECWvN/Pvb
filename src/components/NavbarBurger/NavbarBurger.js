@@ -1,7 +1,6 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
 import "./NavbarBurger.css";
 
 
@@ -39,6 +38,9 @@ export default class Sidebar extends React.Component {
         </Link>
         <Link onClick={() => this.closeMenu()} className="menu-item" to="/login" >
           Login
+        </Link>
+        <Link onClick={() => this.closeMenu()} className="menu-item" to="/admin" >
+          BeheerderPaneel
         </Link>
      
       </Menu>

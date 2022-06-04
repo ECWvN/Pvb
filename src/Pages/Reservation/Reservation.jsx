@@ -1,33 +1,19 @@
 import React from 'react'
 import "./Reservation.css"
-import { DataGrid } from '@mui/x-data-grid';
 import { useState } from 'react';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router';
-import { AuthContext } from "../../context/AuthContext";
 import { auth } from "../../firebase"
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { ContentCutOutlined } from '@mui/icons-material';
-import { useEffect } from 'react';
-import { Calendar, DateObject } from "react-multi-date-picker";
-import DatePicker from "react-multi-date-picker";
-
 
 function Reservation() {
     const [name, setName] = useState("");
     const [mail, setMail] = useState("");
-    const [ingred, setIngred] = useState("");
     const [date, setDate] = useState("");
     const [dieet, setDieet] = useState("");
     const [dieet1, setDieet1] = useState("");
     const [dieet2, setDieet2] = useState("");
     const [opm, setOpm] = useState("");
-    const [datevalue, setDateValue] = useState(new Date());
-
-
 
     const postsCollectionRef = collection(db, "reservations");
     let navigate = useNavigate();
@@ -41,7 +27,6 @@ function Reservation() {
             dieet2,
             opm,
             date,
-            datevalue,
             author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
         });
         navigate("/");
@@ -51,9 +36,9 @@ function Reservation() {
         <div className="createPostPageReserv">
             <div className="cpContainerReserv">
                 <div className="restitle">Reserveren</div>
-                <div className="resdes">kosten: <br/>
-                - hele week mee-eten 15 euro<br/>
-                - per dag mee-eten 3,50 euro 
+                <div className="resdes">kosten: <br />
+                    - hele week mee-eten 15 euro<br />
+                    - per dag mee-eten 3,50 euro
 
                 </div>
                 <div className="inputGpReserv">
@@ -84,8 +69,8 @@ function Reservation() {
                     />
                 </div>
                 <div className="inputGpReservCheck">
-                    <input 
-                    type="checkbox" value= "week"
+                    <input
+                        type="checkbox" value="week"
                         onChange={(event) => {
                             setDate(event.target.value);
                         }}
@@ -94,8 +79,8 @@ function Reservation() {
                 </div>
                 <label class="dieetw"> dieet wensten</label>
                 <div className="inputGpReservCheck">
-                    <input 
-                    type="checkbox" value= "halal,"
+                    <input
+                        type="checkbox" value="halal,"
                         onChange={(event) => {
                             setDieet(event.target.value);
                         }}
@@ -104,8 +89,8 @@ function Reservation() {
 
                 <div className="inputGpReservCheck">
 
-                    <input 
-                    type="checkbox" value= "vega,"
+                    <input
+                        type="checkbox" value="vega,"
                         onChange={(event) => {
                             setDieet1(event.target.value);
                         }}
@@ -113,8 +98,8 @@ function Reservation() {
                 </div>
 
                 <div className="inputGpReservCheck">
-                    <input 
-                    type="checkbox" value= "lactose-vrij"
+                    <input
+                        type="checkbox" value="lactose-vrij"
                         onChange={(event) => {
                             setDieet2(event.target.value);
                         }}
@@ -129,9 +114,9 @@ function Reservation() {
                         onChange={(event) => {
                             setOpm(event.target.value);
                         }}
-                />
+                    />
                 </div>
-                <button className= "ReservationButton " onClick={createPost}> Reserveren</button>
+                <button className="ReservationButton " onClick={createPost}> Reserveren</button>
             </div>
         </div>
     );

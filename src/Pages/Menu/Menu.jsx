@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import "./Menu.css"
-import Box from '@mui/material/Box';
-import { ReactDOM } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../firebase';
 

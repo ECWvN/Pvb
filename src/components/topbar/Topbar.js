@@ -1,23 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import "./Topbar.css"
 import Schild from './Schild.png'
-import { Link } from 'react-router-dom';
 import NavbarBurger from "../NavbarBurger/NavbarBurger"
 import "bootstrap/dist/css/bootstrap.min.css";
-import { auth } from '../../firebase';
-import { signOut, getAuth } from 'firebase/auth';
-
-
 
 export default function Topbar() {
-  const [sidebar, setSidebar] = useState(false)
-
-  // const logout = async ()=>{
-  //   await signOut(auth);
-  // }
-
-
-  const showSidebar = () => setSidebar(!sidebar)
   return (
    <div className='container'>
          <div className="topbar">
@@ -26,7 +13,7 @@ export default function Topbar() {
           <div className='topbarIcons'>
           </div>
         </div>
-        <div className='topRight'><img src={Schild} />
+        <div className='topRight'><img alt="logo"src={Schild} />
        </div>
       </div>
       <div className='TopbarBand'><NavbarBurger/></div>
@@ -37,4 +24,3 @@ export default function Topbar() {
 }
 
 
-{/* <button onClick={logout}>signout</button> */}

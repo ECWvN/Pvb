@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import "./Home.css"
 import "../../components/Sidebar/Sidebar.css"
 import FeaturedInfo from "../../components/FeaturedInfo/FeaturedInfo"
-import Chart from "../../components/Chart/Chart"
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../firebase';

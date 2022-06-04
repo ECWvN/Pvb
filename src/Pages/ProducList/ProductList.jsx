@@ -1,17 +1,10 @@
 import React from 'react'
 import "./ProductList.css"
-import { DataGrid } from '@mui/x-data-grid';
 import { useState } from 'react';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import {addDoc, collection} from 'firebase/firestore'
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router';
-import { AuthContext } from "../../context/AuthContext";
 import {auth} from "../../firebase"
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { ContentCutOutlined } from '@mui/icons-material';
-import { useEffect } from 'react';
 
 function ProductList() {
   const [title, setTitle] = useState("");

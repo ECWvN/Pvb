@@ -13,6 +13,7 @@ import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import SeeReservations from './Pages/SeeReservations/SeeReservations';
 import NeedLogin from './Pages/NeedLogin/NeedLogin';
+import RestervationComp from './Pages/Reservation/RestervationComp';
 
 
 
@@ -35,7 +36,7 @@ function App() {
         <div className="container">
           <Routes>
           <Route exact path="/" element={<BewHome/>} />
-          <Route exact path="/admin535375" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route exact path="/admin" element={<RequireAuth><Home /></RequireAuth>} />
           <Route exact path="/menu" element={<RequireAuth><WeekMenu/></RequireAuth>} />
           <Route exact path="/loginorregister" element={<NeedLogin />} />
           <Route exact path="/reserveringen" element={<RequireAuth><Reservation /></RequireAuth>} />
@@ -43,6 +44,8 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/bekijkreserveringen" element={ <RequireAuth><SeeReservations /></RequireAuth>} />
+          <Route exact path="/gelukt" element={ <RequireAuth><RestervationComp /></RequireAuth>} />
+
           </Routes>
         </div>
       </BrowserRouter>

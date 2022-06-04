@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./Seereservations.css"
 import Sidebar from '../../components/Sidebar/Sidebar';
-import FeaturedInfo from "../../components/FeaturedInfo/FeaturedInfo"
-import Chart from "../../components/Chart/Chart"
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../firebase';
 

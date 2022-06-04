@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Home from '../Home/Home'
 import './BewHome.css'
 import HomeImage from "./HomeImage.jpg"
 
@@ -14,7 +12,7 @@ export default function BewHome() {
             </div>
             <div className="EnkeltjeIntro">
                 <div className="ImageBannerHome">
-                <img id= "homeimg"src={HomeImage} />
+                <img alt="banner" id= "homeimg"src={HomeImage} />
                 </div>
                 <h2 className='HomeBewTitle'> Wie zijn wij?</h2>
             <div className="HomeIntroduction">

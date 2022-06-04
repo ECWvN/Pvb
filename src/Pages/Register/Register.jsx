@@ -3,7 +3,6 @@ import './Register.css'
 import { auth } from "../../firebase"
 import { useNavigate, Link } from 'react-router-dom'
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
-import { useAuthValue } from "../../context/AuthContext";
 import BannerReg from "./bannerReg.png"
 
 function Register() {
@@ -47,7 +46,7 @@ function Register() {
     return (
         <div className='centerr'>
             <div className="regBanner">
-                <img className="bnrr" src={BannerReg} />
+                <img alt= "bnnr" className="bnrr" src={BannerReg} />
             </div>
             <div className='auth'>
                 <h1 className="regtit">Registreren</h1>
