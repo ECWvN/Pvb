@@ -12,34 +12,32 @@ export default function Sidebar() {
     <div className ="Sidebar">
      <div className="SidebarWrapper">
        <div className="sidebarMenu">
-         <h3 className="sidebarTitle">Dashboard</h3>
-         <ul className="sidebarList">
-           <h4 className="sidebarPar">Beheren</h4>
-          <Link to="/home" className='link'>
-           <li className="sidebarListItem">
-              <HomeIcon className="sidebarIcon"/> Home
-              </li>
+         <h3 className="sidebarTitle"></h3>
+          <Link to="/admin" className='link'>
+           <div className="sidebarListItem">
+              <HomeIcon className="sidebarIcon"/> 
+              </div>
            </Link>
            <Link to="/users" className='link'>
-              <li className="sidebarListItem">
-              <ManageAccountsIcon className="sidebarIcon"/> Beheer Accounts
-              </li>
+              <div className="sidebarListItem">
+              <ManageAccountsIcon className="sidebarIcon"/> 
+            </div>
             </Link>
             <Link to="/producten" className='link'>
-           <li className="sidebarListItem">
-              <FoodBankIcon className="sidebarIcon"/> Menu-Items
-              </li>
+           <div className="sidebarListItem">
+              <FoodBankIcon className="sidebarIcon"/> 
+              </div>
            </Link>
-            <h4 className="sidebarPar">Data</h4>
+         
             <Link to="/reserveringen" className='link'>
-               <li className="sidebarListItem">
-               <ConfirmationNumberIcon className="sidebarIcon"/> reserveringen
-               </li>
+               <div className="sidebarListItem">
+               <ConfirmationNumberIcon className="sidebarIcon"/> 
+              </div>
              </Link>
-             <li className="sidebarListItem">
-             <PaidIcon className="sidebarIcon"/> betalingsoverzichten
-             </li>
-         </ul>
+             <div className="sidebarListItem">
+             <PaidIcon className="sidebarIcon"/> 
+            </div>
+         
        </div>
      </div>
     </div>

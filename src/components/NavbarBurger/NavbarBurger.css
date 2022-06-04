@@ -11,11 +11,11 @@
 }
 
 .bm-burger-button {
-  position: fixed;
+ position: absolute;
   width: 22px;
   height: 22px;
-  left: 27px;
-  top: 20px;
+  left: 20px;
+  top: 15px;
 }
 
 .bm-burger-bars {
@@ -59,3 +59,11 @@
   display: none;
 }
 
+menu{
+  max-width: 800px;
+}
+
+.burgermenu{
+  width: 540px;
+
+}

@@ -18,7 +18,8 @@ export default function Topbar() {
 
   const showSidebar = () => setSidebar(!sidebar)
   return (
-    <div className="topbar">
+   <div className='container'>
+         <div className="topbar">
       <div className="topbarWrapper">
         <div className='topLeft'>
           <div className='topbarIcons'>
@@ -28,5 +29,7 @@ export default function Topbar() {
       </div>
       <div className='TopbarBand'><NavbarBurger/></div>
     </div>
+     </div>
+
   )
 }

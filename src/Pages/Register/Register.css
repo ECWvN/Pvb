@@ -1,37 +1,57 @@
-.SignupForm{
-    padding:20px;
+
+.loginTitle{
+    font-size:32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.loginForm{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.SignUpTitle{
-    font-size: 70px;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 20px;
+input{
+    width:370px;
+    height:50px;
+    margin: 10px;
 }
 
-.SignupRow{
-    display: flex;
-    flex-direction: column;
-}
-
-#name, #email, #password, #confirmPassword,#birthDate,#phonenumber{
-    height:40px !important;
-    border: 2px solid #E0E0E0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.SignupButton{
-    width: 150px;
-    background-color:#E8231A;
+button{
+    width: 90px;
+    height: 50px;
     border: none;
+    background-color: #E8231A;
     color: white;
     font-weight: bold;
-    border-radius: 5px;
-    padding: 7px;
     cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 20px;
     font-size: 22px;
+    margin-left: -280px;
+}
+
+span{
+    font-size: 16px;
+    color: #E8231A;
+    margin-top: 15px;
+}
+
+.forgotpassword{
+    display: flex;
+    width:370px;
+    margin-bottom: 15px;
+    margin-top:15px;
+}
+
+label {
+    display: flex;
+    margin-left: -280px;
 }

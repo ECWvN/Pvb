@@ -19,7 +19,9 @@ export default class Sidebar extends React.Component {
 
   render() {
     return (
-      <Menu
+      <div className="1">
+     <div className="1">
+             <Menu className="menu"
         isOpen={this.state.menuOpen}
         onStateChange={state => this.handleStateChange(state)}>
         <Link onClick={() => this.closeMenu()} className="menu-item" to="/">
@@ -35,6 +37,8 @@ export default class Sidebar extends React.Component {
           Login
         </Link>
       </Menu>
+     </div>
+     </div>
     );
   }
 }

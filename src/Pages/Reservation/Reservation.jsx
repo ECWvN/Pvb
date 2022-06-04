@@ -1,41 +1,105 @@
-import React from 'react';
-import "./Reservation.css";
-import { Link } from 'react-router-dom';
-import ReservationBanner from "./ReservationBanner.png"
+import React from 'react'
+import "./Reservation.css"
+import { DataGrid } from '@mui/x-data-grid';
+import {ProductRows} from "../../DummyData"
+import { useState } from 'react';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import {addDoc, collection} from 'firebase/firestore'
+import { db } from '../../firebase';
+import { useNavigate } from 'react-router';
+import { AuthContext } from "../../context/AuthContext";
+import {auth} from "../../firebase"
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { ContentCutOutlined } from '@mui/icons-material';
+import { useEffect } from 'react';
+// import DatePicker, { Value } from "react-multi-date-picker";
 
-export default function Login() {
+function Reservation() {
+  const [name, setName] = useState("");
+  const [mail, setMail] = useState("");
+  const [ingred, setIngred] = useState("");
+//   const [values, setValues] = useState<Value>("");
+
+  const postsCollectionRef = collection(db, "reservations");
+  let navigate = useNavigate();
+
+  const createPost = async () => {
+    await addDoc(postsCollectionRef, {
+      name,
+      mail,
+      ingred,
+      author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+    });
+    navigate("/");
+  };
+
   return (
-    <div>
-            <div className='SignupForm'>
-            <div className="SignUpBanner"><img src={ReservationBanner}/></div>
-       <div className="SignupRow"> 
-       <div className="SignUpTitle"><h2>Reserveren</h2></div>
-       </div>
-       <div className="SignupRow">
-            <label className="formLabel" for="Name" >Naam</label>
-            <input type="text" name="" id="name" className="SignUpInput" />
-       </div>
-       <div className="SignupRow">
-            <label className="formLabel" for="email">E-mailadres </label>
-            <input  type="email" name="" id="email"  className="SignUpInput"/>
-       </div>
-       <div className="SignupRow">
-            <label className="formLabel" for="birthDate">Datum </label>
-            <input  type="date" name="" id="birthDate"  className="SignUpInput"/>
-       </div>
-       <div className="HeleWeekMee">
-            <input  type="checkbox" name="" id="HeleWeekMee"  className="SignUpInput"/>
-            <label className="formLabelCeck" for="birthDate">Hele week mee-eten</label>
-       </div>
-       <div className="SignupRow">
-            <label className="formLabel" for="Name" >Opmerkingen</label>
-            <input type="text" name="" id="name" className="SignUpInput" />
-       </div>
-       <div className="ReservationOutcome">
-       <div className="ReservationCalculation">Totaal : €15 </div>
-       <button type="submit" class="ReservationButton">Reserveren</button>
-      </div>
+    <div className="createPostPageReserv">
+      <div className="cpContainerReserv">
+        <h1>Reserveren</h1>
+        <div className="inputGpReserv">
+          <label> Naam</label>
+          <input
+            placeholder="Vul hier je naam in.."
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+          />
+        </div>
+        <div className="inputGpReserv">
+          <label> Email</label>
+          <input
+            placeholder="Vul hier je emialadres in.."
+            onChange={(event) => {
+              setMail(event.target.value);
+            }}
+          />
+        </div>
+        <div className="inputGpReserv">
+          <label> Wanner wil je meeeten?</label>
+          <input type= "date"
+            placeholder="Post..."
+            onChange={(event) => {
+              setIngred(event.target.value);
+            }}
+          />
+        </div>
+        <div className="inputGpReserv">
+          <label> Post:</label>
+          <textarea
+            placeholder="Post..."
+            onChange={(event) => {
+              setIngred(event.target.value);
+            }}
+          />
+        </div>
+        <div className="inputGpReserv">
+          <label> Post:</label>
+          <textarea
+            placeholder="Post..."
+            onChange={(event) => {
+              setIngred(event.target.value);
+            }}
+          />
+        </div>
+        {/* <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <DatePicker
+        value={values}
+        onChange={(dates) => {
+          if (Array.isArray(dates) && dates.length > 6) dates.length = 6;
+
+          setValues(dates);
+        }}
+        multiple
+      />
+    </div> */}
+        <button onClick={createPost}> Submit Post</button>
       </div>
     </div>
-  )
+  );
 }
+
+
+export default Reservation;

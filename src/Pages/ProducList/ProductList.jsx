@@ -4,49 +4,70 @@ import { DataGrid } from '@mui/x-data-grid';
 import {ProductRows} from "../../DummyData"
 import { useState } from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import {addDoc, collection} from 'firebase/firestore'
+import { db } from '../../firebase';
+import { useNavigate } from 'react-router';
+import { AuthContext } from "../../context/AuthContext";
+import {auth} from "../../firebase"
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { ContentCutOutlined } from '@mui/icons-material';
+import { useEffect } from 'react';
 
-export default function ProductList() {
-    const [data,setData] = useState(ProductRows)
+function ProductList() {
+  const [title, setTitle] = useState("");
+  const [week, setWeek] = useState("");
+  const [ingred, setIngred] = useState("");
 
-    const handleDelete = (id)=> {
-        setData(data.filter((item)=> item.id !== id));
-    };
+  const postsCollectionRef = collection(db, "menu");
+  let navigate = useNavigate();
 
-    const columns = [
-        {
-          field: 'Recept',
-          headerName: 'Recept',
-          width: 150,
-          editable: true,
-          renderCell: (params) => {
-              return(
-                  <div className="ProductlistUser">
-                      <img src={params.row.img} alt="" className="ProductListImg" />
-                      {params.row.name}
-                  </div>
-              )
-          }
-        },
-        {
-            field: 'Halal',
-            headerName: 'Halal',
-            type: "text",
-            width: 150,
-            editable: true,
-            render: rowData => (rowData.mode ? "True" : "False"),
-          },
+  const createPost = async () => {
+    await addDoc(postsCollectionRef, {
+      week,
+      title,
+      ingred,
+      author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+    });
+    navigate("/menu");
+  };
 
-      ];
   return (
-    <div className='productList'>
-              <DataGrid
-        rows={ProductRows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[8]}
-        checkboxSelection
-      />
-      <Sidebar />
+    <div className="createPostPage">
+      <div className="cpContainer">
+        <h1>Niew gerecht:</h1>
+        <div className="inputGp">
+          <label> Week</label>
+          <input
+            placeholder="ma Week 1"
+            onChange={(event) => {
+              setWeek(event.target.value);
+            }}
+          />
+        </div>
+        <div className="inputGp">
+          <label> Post:</label>
+          <input
+            placeholder="Post..."
+            onChange={(event) => {
+              setTitle(event.target.value);
+            }}
+          />
+        </div>
+        <div className="inputGp">
+          <label> Post:</label>
+          <textarea
+            placeholder="Post..."
+            onChange={(event) => {
+              setIngred(event.target.value);
+            }}
+          />
+        </div>
+        <button onClick={createPost}> Submit Post</button>
+      </div>
     </div>
-  )
+  );
 }
+
+
+export default ProductList;

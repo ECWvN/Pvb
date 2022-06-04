@@ -37,7 +37,7 @@ function App() {
         <div className="container">
           <Routes>
           <Route exact path="/" element={<BewHome/>} />
-          <Route exact path="/home" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route exact path="/admin" element={<RequireAuth><Home /></RequireAuth>} />
           <Route exact path="/menu" element={<WeekMenu/>} />
           <Route exact path="/users" element={<UserList/>} />
           <Route exact path="/user/:userid" element={<User />} />

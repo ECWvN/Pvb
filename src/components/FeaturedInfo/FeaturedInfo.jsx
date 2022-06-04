@@ -20,12 +20,6 @@ export default function FeaturedInfo() {
             </div>
            <div className="FeaturedSub">Vorige week €120</div>
         </div>
-        <div className="FeaturedItem">
-          <span className="FeaturedTitle">Vandaag op het menu</span>
-          <div className="FeaturedMoneyContainer">
-              <span className="FeaturedMoney">Pasta</span>
-            </div>
-        </div>
     </div>
   )
 }

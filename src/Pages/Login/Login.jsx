@@ -1,12 +1,12 @@
 import { useContext, useState } from "react"
 import React from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../../firebase"
-import { initializeApp } from "firebase/app";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import "./Login.css"
+
+import "./Login.css";
+import LoginBanner from "./loginBanner.png"
 
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
     const user = userCredential.user;
     console.log(user);
     dispatch({type:"LOGIN", payload:user})
-    navigate("/")
+    navigate("/admin")
   })
   .catch((error) => {
     setError(true);
@@ -36,13 +36,23 @@ const Login = () => {
   }
   return (
     <div className="login">
-      <form onSubmit={handleLogin}>
-        <input type="email" placeholder="email" onChange={e=>setEmail(e.target.value)} />
-        <input type="password" placeholder="password" onChange={e=>setPassword(e.target.value)} />
+         <div className="SignUpBanner"><img src={LoginBanner}/></div>
+         <div className="loginTitle">Inloggen</div>
+     <div className="loginForm">
+     <form onSubmit={handleLogin}>
+     <label className="formLabel" for="email">E-mailadres </label>
+        <input type="email"  onChange={e=>setEmail(e.target.value)} />
+        <label className="formLabel" for="password">Wachtwoord </label>
+        <input type="password"  onChange={e=>setPassword(e.target.value)} />
+        <Link to= "#"><div className="forgotpassword">wachtwoord vergeten?</div></Link>
         <button type="submit">login</button>
-        { error && <span>wrong email or password!</span>}
+        { error && <span>Inlog gegevens onjuist!</span>}
       </form>
+     </div>
+     <Link to= "/register"><div className="noAccount">geen account? registreer hier! </div>
+     </Link>
     </div>
+  
   )
 }
 
