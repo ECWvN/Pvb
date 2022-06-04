@@ -34,10 +34,10 @@ function ProductList() {
   return (
     <div className="createPostPage">
       <div className="cpContainer">
-        <h1>Niew gerecht:</h1>
+        <h1>Niew gerecht</h1>
         <div className="inputGp">
           <label> Week</label>
-          <input
+          <input  className="productinput"
             placeholder="ma Week 1"
             onChange={(event) => {
               setWeek(event.target.value);
@@ -46,7 +46,7 @@ function ProductList() {
         </div>
         <div className="inputGp">
           <label> Post:</label>
-          <input
+          <input className="productinput"
             placeholder="Post..."
             onChange={(event) => {
               setTitle(event.target.value);
@@ -55,7 +55,7 @@ function ProductList() {
         </div>
         <div className="inputGp">
           <label> Post:</label>
-          <textarea
+          <textarea className="productinput"
             placeholder="Post..."
             onChange={(event) => {
               setIngred(event.target.value);

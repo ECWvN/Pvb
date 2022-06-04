@@ -1,84 +1,88 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Register.css'
-import {auth} from "../../firebase"
-import {useNavigate, Link} from 'react-router-dom'
-import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
-import {useAuthValue} from "../../context/AuthContext"
+import { auth } from "../../firebase"
+import { useNavigate, Link } from 'react-router-dom'
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
+import { useAuthValue } from "../../context/AuthContext";
+import BannerReg from "./bannerReg.png"
 
 function Register() {
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState('')
-  const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
 
-  const validatePassword = () => {
-    let isValid = true
-    if (password !== '' && confirmPassword !== ''){
-      if (password !== confirmPassword) {
-        isValid = false
-        setError('Passwords does not match')
-      }
+    const validatePassword = () => {
+        let isValid = true
+        if (password !== '' && confirmPassword !== '') {
+            if (password !== confirmPassword) {
+                isValid = false
+                setError('Passwords does not match')
+            }
+        }
+        return isValid
     }
-    return isValid
-  }
 
-  const register = e => {
-    e.preventDefault()
-    setError('')
-    if(validatePassword()) {
-      // Create a new user with email and password using firebase
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          sendEmailVerification(auth.currentUser)   
-          .then(() => {
-            navigate('/')
-          }).catch((err) => alert(err.message))
-        })
-        .catch(err => setError(err.message))
+    const register = e => {
+        e.preventDefault()
+        setError('')
+        if (validatePassword()) {
+            // Create a new user with email and password using firebase
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    sendEmailVerification(auth.currentUser)
+                        .then(() => {
+                            navigate('/menu')
+                        }).catch((err) => alert(err.message))
+                })
+                .catch(err => setError(err.message))
+        }
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
     }
-    setEmail('')
-    setPassword('')
-    setConfirmPassword('')
-  }
 
-  return (
-    <div className='center'>
-      <div className='auth'>
-        <h1>Register</h1>
-        {error && <div className='auth__error'>{error}</div>}
-        <form onSubmit={register} name='registration_form'>
-          <input 
-            type='email' 
-            value={email}
-            placeholder="Enter your email"
-            required
-            onChange={e => setEmail(e.target.value)}/>
+    return (
+        <div className='centerr'>
+            <div className="regBanner">
+                <img className="bnrr" src={BannerReg} />
+            </div>
+            <div className='auth'>
+                <h1 className="regtit">Registreren</h1>
+                {error && <div className='auth__error'>{error}</div>}
+                <form onSubmit={register} name='registration_form'>
+                    <label className="reglabel">email</label>
+                    <input
+                        type='email'
+                        value={email}
+                        required
+                        onChange={e => setEmail(e.target.value)} />
 
-          <input 
-            type='password'
-            value={password} 
-            required
-            placeholder='Enter your password'
-            onChange={e => setPassword(e.target.value)}/>
+                    <label className="reglabel">wachtwoord</label>
+                    <input
+                        type='password'
+                        value={password}
+                        required
+                        onChange={e => setPassword(e.target.value)} />
+                    <label className="reglabel">wachtword bevestigen</label>
 
-            <input 
-            type='password'
-            value={confirmPassword} 
-            required
-            placeholder='Confirm password'
-            onChange={e => setConfirmPassword(e.target.value)}/>
+                    <input
+                        type='password'
+                        value={confirmPassword}
+                        required
+                        onChange={e => setConfirmPassword(e.target.value)} />
 
-          <button type='submit'>Register</button>
-        </form>
-        <span>
-          Already have an account?  
-          <Link to='/login'>login</Link>
-        </span>
-      </div>
-    </div>
-  )
+                    <button className=" butoon" type='submit'>Registreren</button>
+                </form>
+                <span classname=" al een acc">
+                    Heb je al een account?
+                    <Link to='/login'>login</Link>
+                </span>
+            </div>
+        </div>
+    )
 }
 
 export default Register
